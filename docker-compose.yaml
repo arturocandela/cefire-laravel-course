@@ -29,13 +29,18 @@ services:
       MYSQL_PASSWORD: alumno
       MYSQL_DATABASE: test
     volumes:
-      - ./mysql/data:/var/lib/mysql
-      - ./mysql/tmp:/tmp
+      - mysql_data:/var/lib/mysql
     ports:
       - "3306:3306"
+    tmpfs:
+      - /tmp
+      - /var/run/mysqld
     networks:
       - default
 
 networks:
  default:
    driver: bridge
+
+volumes:
+  mysql_data:
