@@ -16,9 +16,7 @@
         @yield('content')
     </main>
 
-    <footer>
-        <p>Pie de página &copy; 2025</p>
-    </footer>
+    @include('_partials.footer')
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </body>
 </html>
