@@ -8,7 +8,8 @@
 </head>
 <body>
     <header>
-        @yield('header')"
+        @include('_partials.nav')
+        @yield('header')
     </header>
 
     <main>
