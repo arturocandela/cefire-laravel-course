@@ -1,9 +1,6 @@
 @props(['title'])
 <div class="card">
-    @isset($title)
-        <h2>{{ $title }}</h2>
-    @endisset
-    <div>
-        <p>{{ $slot }}</p>
-    </div>
+    <h2>{{ $title }}</h2>
+    <img src="{{ asset('assets/images/servicios.png') }}" alt="Servicio" width="128px">
+    <p>{{ $slot }}</p>
 </div>

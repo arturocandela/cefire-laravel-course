@@ -19,5 +19,6 @@
     <footer>
         <p>Pie de página &copy; 2025</p>
     </footer>
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </body>
 </html>
