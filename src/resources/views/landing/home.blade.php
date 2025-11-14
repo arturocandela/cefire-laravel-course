@@ -12,8 +12,11 @@
     <p>Explora nuestras ofertas, vive nuevas aventuras y recuerda... ¡siempre hay tiempo para la última llamada!</p>
 
     <div class="text-center my-4">
-    <img src="{{ asset('assets/images/ultima-llamada-logo.png') }}" alt="Última Llamada Viajes" class="img-fluid" style="max-width: 400px;">
+        <img
+            src="{{ asset('assets/images/ultima-llamada-logo.png') }}"
+            alt="Última Llamada Viajes"
+            class="img-fluid mx-auto d-block"
+            style="max-width: 400px;">
     </div>
-
 
 @endsection
