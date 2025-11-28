@@ -23,4 +23,17 @@ class EmployeeController extends Controller
         return view('employees.index',compact('employees'));
     }
 
+    public function lastNameStartsWith(){
+
+        $employees = Employee::where('emp_lastname', 'like', 'A%')->get();
+        return view('employees.index',compact('employees'));
+
+    }
+
+    public function bornIn(){
+        $employees = Employee::whereYear('emp_birth_date', '1990')->get();
+        return view('employees.index',compact('employees'));
+
+    }
+
 }
