@@ -19,19 +19,27 @@ class EmployeeController extends Controller
 
     public function byLastName(){
 
-        $employees = Employee::orderBy("emp_lastname","asc")->orderBy("emp_firstname","asc")->get();
+        $employees = Employee::orderBy("emp_lastname","asc")
+            ->orderBy("emp_firstname","asc")
+            ->get();
         return view('employees.index',compact('employees'));
     }
 
     public function lastNameStartsWith(){
 
-        $employees = Employee::where('emp_lastname', 'like', 'A%')->get();
+        $employees = Employee::where('emp_lastname', 'like', 'A%')
+            ->orderBy("emp_lastname","asc")
+            ->orderBy("emp_firstname","asc")
+            ->get();
         return view('employees.index',compact('employees'));
 
     }
 
     public function bornIn(){
-        $employees = Employee::whereYear('emp_birth_date', '1990')->get();
+        $employees = Employee::whereYear('emp_birth_date', '1990')
+            ->orderBy("emp_lastname","asc")
+            ->orderBy("emp_firstname","asc")
+            ->get();
         return view('employees.index',compact('employees'));
 
     }
