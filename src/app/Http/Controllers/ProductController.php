@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Product;
+use GuzzleHttp\Handler\Proxy;
+use Illuminate\View\View;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $products = Product::all();
         return view('products.index', compact('products'));
@@ -20,7 +22,7 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
         return view('products.create');
     }
@@ -28,7 +30,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $product = new Product();
         $product->name = $request->input('name');
@@ -42,27 +44,24 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Product $product): View
     {
-        $product = Product::findOrFail($id);
         return view('products.show', compact('product'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Product $product): View
     {
-        $product = Product::findOrFail($id);
         return view('products.edit', compact('product'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Product $product): RedirectResponse
     {
-        $product = Product::findOrFail($id);
         $product->update($request->all());
         return redirect()->route('product.index');
     }
