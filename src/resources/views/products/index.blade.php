@@ -16,9 +16,7 @@
             <a href="{{ route('product.create') }}" class="btn btn-primary">Crear producto</a>
         </div>
 
-        @if ($products->isEmpty())
-            <div class="alert alert-info text-center mb-0">No hay productos disponibles.</div>
-        @else
+        @forelse ($products as $product)
             <div class="table-responsive shadow-sm bg-white rounded">
                 <table class="table table-hover align-middle mb-0">
                     <caption class="text-center fw-semibold">
@@ -57,7 +55,9 @@
                     </tbody>
                 </table>
             </div>
-        @endif
+        @empty
+            <div class="alert alert-info text-center mb-0">No hay productos disponibles.</div>
+        @endforelse
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
