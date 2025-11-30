@@ -10,7 +10,7 @@
 
     @if ($products->isEmpty())
         <div class="alert alert-info text-center mb-0">No hay productos disponibles.</div>
-    @else 
+    @else
         <div class="table-responsive shadow-sm bg-white rounded">
             <table class="table table-hover align-middle mb-0">
                 <caption class="text-center fw-semibold">
@@ -35,19 +35,31 @@
                             <td class="text-end">${{ number_format($product->price, 2) }}</td>
                             <td class="text-end">{{ $product->stock }}</td>
                             <td class="text-center text-nowrap">
-                                <a href="{{ route('product.edit', $product) }}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                                <a href="{{ route('product.show', $product) }}" class="btn btn-sm btn-outline-primary"
+                                    title="Mostrar producte">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+
+                                <a href="{{ route('product.edit', $product) }}" class="btn btn-sm btn-outline-primary"
+                                    title="Editar producte">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+
                                 <form action="{{ route('product.destroy', $product) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger"
-                                        onclick="return confirm('¿Deseas eliminar este producto?')">Eliminar</button>
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" title="Eliminar producte"
+                                        onclick="return confirm('¿Deseas eliminar este producto?')">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
                                 </form>
                             </td>
+
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-    
+
     @endif
 @endsection
