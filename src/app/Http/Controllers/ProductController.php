@@ -35,7 +35,7 @@ class ProductController extends Controller
         $product->price = $request->input('price');
         $product->stock = $request->input('stock');
         $product->save();
-        return redirect()->route('products.index');
+        return redirect()->route('product.index');
     }
 
     /**
