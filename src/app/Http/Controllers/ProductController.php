@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Product;
-use GuzzleHttp\Handler\Proxy;
 use Illuminate\View\View;
 
 class ProductController extends Controller
